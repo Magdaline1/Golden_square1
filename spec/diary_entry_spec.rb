@@ -8,7 +8,7 @@ describe DiaryEntry do
     end
 
     describe @count_words do
-        it "allows user to count number of words in the contents as an integer" do
+        it "allows user to count number of words in the contents" do
             entry = DiaryEntry.new("my_title", "some contents")
             expect(entry.count_words).to eq 2
         end
@@ -20,6 +20,11 @@ describe DiaryEntry do
     end
 
     describe "reading_time" do
+        it "returns one if contents have one word" do
+            entry = DiaryEntry.new("my_title", "one")
+            expect(entry.reading_time(2)).to eq 1
+        end
+
         context "given 200 wpm speed" do
             it "returns the ceiling of number of minutes to read a text" do
                 entry = DiaryEntry.new("my_title", "one " * 550)
@@ -83,4 +88,3 @@ describe DiaryEntry do
         end
     end
 end
-
