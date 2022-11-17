@@ -13,7 +13,7 @@ describe 'integration' do
         expect(contacts.list).to eq ["07414927478", "09876543210", "12345678901"]
     end
 
-    it "shows a todo list" do
+    it "shows a todo list" do #this may not be a test for integration as it only calls on 1 class - check later
         diary = Diary.new
         diary.add_todo("groceries")
         diary.add_todo("do dishes")
